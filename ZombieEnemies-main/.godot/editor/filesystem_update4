@@ -1,9 +1,11 @@
+res://Scenes/pistol.tscn
 res://Scenes/World.tscn
 res://Scenes/Zombie.tscn
-res://Scripts/Zombie.gd
-res://Scripts/World.gd
-res://enezombie.gd
-res://Scenes/enezombie.tscn
 res://mainenemy.tscn
-res://mainenemy.gd
+res://Scenes/Player.tscn
 res://Scripts/Player.gd
+res://pistol.tscn
+res://bullet.tscn
+res://bullet.gd
+res://Scripts/World.gd
+res://node_3d.tscn

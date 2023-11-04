@@ -1,3 +1,10 @@
+CSGBox3D
+GPUParticles3D
+RayCast3D
+MeshInstance3D
+AnimationPlayer
+Node3D
+Camera3D
+CollisionShape3D
 AnimationTree
 CharacterBody3D
-CollisionShape3D

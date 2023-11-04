@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 5.0
+const WALK_SPEED = 8.0
 const SPRINT_SPEED = 8.0
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.004
@@ -22,8 +22,17 @@ signal player_hit
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
+# Bullets
+var bullet = load("res://Scenes/bullet.tscn")
+var instance
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var gun_anim = $Head/Camera3D/Pistol/AnimationPlayer
+@onready var gun_barrel = $Head/Camera3D/Pistol/RayCast3D
+#@onready var gun_anim2 = $Head/Camera3D/Rifle2/AnimationPlayer
+#@onready var gun_barrel2 = $Head/Camera3D/Rifle2/RayCast3D
+
 
 
 func _ready():
@@ -74,6 +83,16 @@ func _physics_process(delta):
 	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	
+	# Shooting
+	if Input.is_action_pressed("shoot"):
+		if !gun_anim.is_playing():
+			gun_anim.play("Shoot")
+			instance = bullet.instantiate()
+			instance.position = gun_barrel.global_position
+			instance.transform.basis = gun_barrel.global_transform.basis
+			get_parent().add_child(instance)
+		
 	
 	move_and_slide()
 
