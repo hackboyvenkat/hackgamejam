@@ -1,0 +1,8 @@
+res://Scenes/World.tscn
+res://Scenes/Zombie.tscn
+res://Scripts/Zombie.gd
+res://Scripts/World.gd
+res://enezombie.gd
+res://Scenes/enezombie.tscn
+res://mainenemy.tscn
+res://mainenemy.gd
